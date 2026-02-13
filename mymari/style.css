@@ -1,0 +1,221 @@
+body {
+  background: linear-gradient(135deg, #cdb4ff, #ffc8dd);
+  font-family: 'Pixelify Sans', cursive;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.app {
+  background: #f8edff;
+  width: 90%;
+  max-width: 420px;
+  padding: 25px;
+  border-radius: 20px;
+  box-shadow: 0 20px 40px rgba(0,0,0,.2);
+  text-align: center;
+}
+
+.screen { display: none; animation: fade .4s ease; }
+.screen.active { display: block; }
+
+
+p { color: #5a189a; line-height: 1.6; }
+
+button {
+  width: 100%;
+  padding: 12px;
+  margin-top: 10px;
+  border: none;
+  border-radius: 25px;
+  background: #b5179e;
+  color: white;
+  cursor: pointer;
+}
+
+button:hover { background: #7209b7; }
+
+#startBtn { display: none; }
+
+.next-section {
+  background: #ff6ec7;
+  margin-top: 20px;
+}
+
+/* PHOTO CARDS */
+.card-container {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 15px;
+  margin-top: 20px;
+}
+
+.flip-card {
+  height: 180px;
+  perspective: 1000px;
+  cursor: pointer;
+}
+
+.flip-inner {
+  width: 100%;
+  height: 100%;
+  position: relative;
+  transition: transform .6s;
+  transform-style: preserve-3d;
+}
+
+.flip-card.flipped .flip-inner {
+  transform: rotateY(180deg);
+}
+
+.flip-front, .flip-back {
+  position: absolute;
+  inset: 0;
+  backface-visibility: hidden;
+  border-radius: 15px;
+  padding: 10px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.flip-front {
+  background: #ffd6ff;
+}
+
+.flip-back {
+  background: white;
+  transform: rotateY(180deg);
+}
+
+.flip-back img {
+  width: 90%;
+  border-radius: 10px;
+}
+
+/* PLANE SECTION */
+.memory-area {
+  position: relative;
+  height: 250px;
+  margin-top: 30px;
+}
+
+#plane {
+  position: absolute;
+  width: 80px;
+  top: 40px;
+  left: -100px;
+  animation: fly 4s linear forwards;
+}
+
+@keyframes fly {
+  0% { left: -100px; }
+  70% { left: 55%; }
+  85% { left: 60%; transform: rotate(20deg); }
+  100% { left: 60%; transform: rotate(30deg); }
+}
+
+.special-letter {
+  position: absolute;
+  right: 20px;
+  bottom: 20px;
+  cursor: pointer;
+  animation: shake .4s ease-in-out 4s 2;
+}
+
+.special-letter img { width: 90px; }
+
+.date { font-size: 12px; color: #7209b7; }
+
+@keyframes shake {
+  0% { transform: rotate(0); }
+  25% { transform: rotate(3deg); }
+  50% { transform: rotate(-3deg); }
+  100% { transform: rotate(0); }
+}
+
+/* MODAL */
+#letterModal {
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,.5);
+  display: none;
+  justify-content: center;
+  align-items: center;
+}
+
+button {
+  font-family: 'Pixelify Sans', cursive;
+  font-weight: 700;
+  font-size: 14px;
+
+  background: #ff6ec7; /* button color */
+  color: #fff;
+  
+  border: 3px solid black; /* thick border for pixel vibe */
+  border-radius: 0; /* remove smooth corners */
+  box-shadow: 4px 4px 0 #000; /* blocky shadow */
+  
+  padding: 10px 20px;
+  cursor: pointer;
+  text-transform: uppercase; /* optional but pixel-game style */
+}
+
+button:hover {
+  background: #ff4db8;
+  box-shadow: 2px 2px 0 #000; /* pressed effect */
+  transform: translate(2px, 2px);
+}
+
+button:active {
+  box-shadow: 1px 1px 0 #000; /* pressed even more */
+  transform: translate(3px, 3px);
+}
+
+
+#letterModal.active { display: flex; }
+
+.letter-content {
+  background: white;
+  padding: 20px;
+  border-radius: 15px;
+  width: 85%;
+  max-width: 320px;
+}
+
+.letter-content img {
+  width: 50%;
+  margin-top: 10px;
+  border-radius: 10px;
+}
+
+
+
+#musicBtn {
+  position: fixed;
+  top: 14px;
+  right: 14px;
+
+  width: 36px;
+  height: 36px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  border: none;
+  border-radius: 50%;
+  background: #ffafcc;
+
+  font-size: 16px;
+  cursor: pointer;
+
+  box-shadow: 0 4px 10px rgba(0,0,0,0.15);
+  z-index: 999;
+}
+
+#musicBtn:hover {
+  transform: scale(1.08);
+}

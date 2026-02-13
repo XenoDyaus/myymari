@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>My Mari</title>
+  <link href="https://fonts.googleapis.com/css2?family=Pixelify+Sans:wght@400;600;700&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<audio id="bgMusic" loop>
+  <source src="assets/bgmusic.mp3">
+</audio>
+
+<button id="musicBtn">🎵</button>
+
+
+<div class="app">
+
+  <!-- SECTION 1: STORY -->
+  <div class="screen active" id="intro">
+    <p id="typingText"></p>
+    <button id="startBtn" onclick="showScreen('home')">Continue</button>
+  </div>
+
+  <!-- SECTION 2: REASONS -->
+  <div class="screen" id="home">
+    <h2> Reasons why I love you</h2>
+    <p id="progress"></p>
+
+    <button onclick="openReason(0)">😴 You fall asleep anywhere</button>
+    <button onclick="openReason(1)">🍔 You steal my food</button>
+    <button onclick="openReason(2)">🤯 You overthink</button>
+    <button onclick="openReason(3)">😵 You can’t decide</button>
+     <img src="assets/cat.gif">
+
+    <button class="next-section" onclick="showScreen('cards')">
+      Open memories 📸
+    </button>
+  </div>
+
+  <!-- REASON DETAIL -->
+  <div class="screen" id="reason">
+    <h3 id="reasonTitle"></h3>
+    <p id="reasonText"></p>
+
+    <div class="nav">
+      <button onclick="showScreen('home')">Aysows</button>
+      <button onclick="nextReason()">Ano pa?</button>
+    </div>
+  </div>
+
+  <!-- SECTION 3: PHOTO CARDS -->
+  <div class="screen" id="cards">
+    <h2>Our Little moments</h2>
+
+    <div class="card-container">
+
+      <div class="flip-card" onclick="flip(this)">
+        <div class="flip-inner">
+          <div class="flip-front">
+            <p>Do u Remeber</p>
+            <small>Our Bus Trips?</small>
+          </div>
+          <div class="flip-back">
+            <img src="assets/photo1.jpg">
+            <p>Remember?</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="flip-card" onclick="flip(this)">
+        <div class="flip-inner">
+          <div class="flip-front">
+            <p>Do u Remember</p>
+            <small>My Grad day w/ U</small>
+          </div>
+          <div class="flip-back">
+            <img src="assets/photo2.jpg">
+            <p>I'm so lucky.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="flip-card" onclick="flip(this)">
+        <div class="flip-inner">
+          <div class="flip-front">
+            <p>Our First Meet</p>
+            <small>Can't Even stand close 2 u</small>
+          </div>
+          <div class="flip-back">
+            <img src="assets/photo3.jpg">
+            <p>I'm so into u.</p>
+          </div>
+        </div>
+      </div>
+
+       <div class="flip-card" onclick="flip(this)">
+        <div class="flip-inner">
+          <div class="flip-front">
+            <p>Our Anniv Dinner</p>
+            <small>With ur treat</small>
+          </div>
+          <div class="flip-back">
+            <img src="assets/photo4.jpg">
+            <p>I love u.</p>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+    <button class="next-section" onclick="showScreen('memory')">
+      One last letter ✈️
+    </button>
+  </div>
+
+  <!-- SECTION 4: PLANE LETTER -->
+  <div class="screen" id="memory">
+    <h2>📬 One letter you didn’t expect</h2>
+
+    <div class="memory-area">
+      <img src="assets/plane.png" id="plane">
+
+      <div class="special-letter" onclick="openLetter()">
+        <img src="assets/envelope.png">
+        <p class="date">📅 Mark this on your calendar</p>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+<!-- LETTER MODAL -->
+<div id="letterModal">
+  <div class="letter-content">
+<h3>July 30, 2026</h3>
+
+<p>
+  I want to invite you on a special date,<br>
+  just the two of us, no distractions.<br>
+</p>
+
+<p>
+  I want to spend every moment with you,<br>
+  laughing, talking, and just being together.<br>
+</p>
+
+<p>
+  No pretending, no pressure,<br>
+  just peace and you by my side.<br>
+</p>
+
+<p>
+  I’m grateful for this day,<br>
+  and for every day after it<br>
+  that I get to love you.<br>
+</p>
+
+<p>
+  I love you so much 💜<br>
+  Happy Valentine’s Day, my love.<br>
+  I can’t wait to see you again.<br>
+</p>
+
+    <img src="assets/cat2.gif" class="gif">
+
+    <button onclick="closeLetter()">Yay!!</button>
+  </div>
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>
